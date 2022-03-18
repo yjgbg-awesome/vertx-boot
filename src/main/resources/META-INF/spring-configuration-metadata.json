@@ -1,0 +1,1019 @@
+{
+  "groups": [
+    {
+      "name": "vertx-boot.core.vertx-options",
+      "type": "io.vertx.core.VertxOptions",
+      "sourceType": "com.github.yjgbg.vertx.boot.core.CoreConfig",
+      "sourceMethod": "vertxOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options",
+      "type": "io.vertx.ext.web.client.WebClientOptions",
+      "sourceType": "com.github.yjgbg.vertx.boot.http.client.HttpClientConfig",
+      "sourceMethod": "httpClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.deployment-options",
+      "type": "io.vertx.core.DeploymentOptions",
+      "sourceType": "com.github.yjgbg.vertx.boot.http.server.HttpServerConfig",
+      "sourceMethod": "httpServerDeploymentOptions(io.vertx.core.VertxOptions)"
+    },
+    {
+      "name": "vertx-boot.http.server.options",
+      "type": "io.vertx.core.http.HttpServerOptions",
+      "sourceType": "com.github.yjgbg.vertx.boot.http.server.HttpServerConfig",
+      "sourceMethod": "httpServerOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options",
+      "type": "io.vertx.redis.client.RedisOptions",
+      "sourceType": "com.github.yjgbg.vertx.boot.redis.RedisConfig",
+      "sourceMethod": "redisOptions"
+    }
+  ],
+  "properties": [
+    {
+      "name": "vertx-boot.core.vertx-options.address-resolver-options",
+      "type": "io.vertx.core.dns.AddressResolverOptions",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.blocked-thread-check-interval",
+      "type": "java.lang.Long",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.blocked-thread-check-interval-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.cluster-manager",
+      "type": "io.vertx.core.spi.cluster.ClusterManager",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.disable-t-c-c-l",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.event-bus-options",
+      "type": "io.vertx.core.eventbus.EventBusOptions",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.event-loop-pool-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.file-system-options",
+      "type": "io.vertx.core.file.FileSystemOptions",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.h-a-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.h-a-group",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.internal-blocking-pool-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.max-event-loop-execute-time",
+      "type": "java.lang.Long",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.max-event-loop-execute-time-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.max-worker-execute-time",
+      "type": "java.lang.Long",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.max-worker-execute-time-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options",
+      "type": "io.vertx.core.metrics.MetricsOptions",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.prefer-native-transport",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.quorum-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.tracing-options",
+      "type": "io.vertx.core.tracing.TracingOptions",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.warning-exception-time",
+      "type": "java.lang.Long",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.warning-exception-time-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.worker-pool-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.activity-log-data-format",
+      "type": "io.netty.handler.logging.ByteBufFormat",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.alpn-versions",
+      "type": "java.util.List<io.vertx.core.http.HttpVersion>",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.connect-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.crl-paths",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.crl-values",
+      "type": "java.util.List<io.vertx.core.buffer.Buffer>",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.decoder-initial-buffer-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.default-host",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.default-port",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.enabled-cipher-suites",
+      "type": "java.util.Set<java.lang.String>",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.enabled-secure-transport-protocols",
+      "type": "java.util.Set<java.lang.String>",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.follow-redirects",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.force-sni",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.http2-clear-text-upgrade",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.http2-connection-window-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.http2-keep-alive-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.http2-max-pool-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.http2-multiplexing-limit",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.idle-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.idle-timeout-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.initial-settings",
+      "type": "io.vertx.core.http.Http2Settings",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.jdk-ssl-engine-options",
+      "type": "io.vertx.core.net.JdkSSLEngineOptions",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.keep-alive",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.keep-alive-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.key-cert-options",
+      "type": "io.vertx.core.net.KeyCertOptions",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.key-store-options",
+      "type": "io.vertx.core.net.JksOptions",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.local-address",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.log-activity",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.max-chunk-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.max-header-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.max-initial-line-length",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.max-pool-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.max-redirects",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.max-wait-queue-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.max-web-socket-frame-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.max-web-socket-message-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.max-web-sockets",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.metrics-name",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.name",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.non-proxy-hosts",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.open-ssl-engine-options",
+      "type": "io.vertx.core.net.OpenSSLEngineOptions",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.pem-key-cert-options",
+      "type": "io.vertx.core.net.PemKeyCertOptions",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.pem-trust-options",
+      "type": "io.vertx.core.net.PemTrustOptions",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.pfx-key-cert-options",
+      "type": "io.vertx.core.net.PfxOptions",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.pfx-trust-options",
+      "type": "io.vertx.core.net.PfxOptions",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.pipelining",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.pipelining-limit",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.pool-cleaner-period",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.pool-event-loop-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.protocol-version",
+      "type": "io.vertx.core.http.HttpVersion",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.proxy-options",
+      "type": "io.vertx.core.net.ProxyOptions",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.read-idle-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.receive-buffer-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.reuse-address",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.reuse-port",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.send-buffer-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.send-unmasked-frames",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.shared",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.so-linger",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.ssl",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.ssl-engine-options",
+      "type": "io.vertx.core.net.SSLEngineOptions",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.ssl-handshake-timeout",
+      "type": "java.lang.Long",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.ssl-handshake-timeout-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.tcp-cork",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.tcp-fast-open",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.tcp-keep-alive",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.tcp-no-delay",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.tcp-quick-ack",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.tracing-policy",
+      "type": "io.vertx.core.tracing.TracingPolicy",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.traffic-class",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.trust-all",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.trust-options",
+      "type": "io.vertx.core.net.TrustOptions",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.trust-store-options",
+      "type": "io.vertx.core.net.JksOptions",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.try-use-compression",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.try-use-per-message-web-socket-compression",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.use-alpn",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.user-agent",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.user-agent-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.verify-host",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.web-socket-closing-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.web-socket-compression-allow-client-no-context",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.web-socket-compression-level",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.web-socket-compression-request-server-no-context",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.client.options.write-idle-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.ext.web.client.WebClientOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.deployment-options.config",
+      "type": "io.vertx.core.json.JsonObject",
+      "sourceType": "io.vertx.core.DeploymentOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.deployment-options.ha",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.DeploymentOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.deployment-options.instances",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.DeploymentOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.deployment-options.max-worker-execute-time",
+      "type": "java.lang.Long",
+      "sourceType": "io.vertx.core.DeploymentOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.deployment-options.max-worker-execute-time-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.core.DeploymentOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.deployment-options.worker",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.DeploymentOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.deployment-options.worker-pool-name",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.core.DeploymentOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.deployment-options.worker-pool-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.DeploymentOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.accept-backlog",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.accept-unmasked-frames",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.activity-log-data-format",
+      "type": "io.netty.handler.logging.ByteBufFormat",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.alpn-versions",
+      "type": "java.util.List<io.vertx.core.http.HttpVersion>",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.client-auth",
+      "type": "io.vertx.core.http.ClientAuth",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.compression-level",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.compression-supported",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.crl-paths",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.crl-values",
+      "type": "java.util.List<io.vertx.core.buffer.Buffer>",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.decoder-initial-buffer-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.decompression-supported",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.enabled-cipher-suites",
+      "type": "java.util.Set<java.lang.String>",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.enabled-secure-transport-protocols",
+      "type": "java.util.Set<java.lang.String>",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.handle100-continue-automatically",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.host",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.http2-connection-window-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.idle-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.idle-timeout-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.initial-settings",
+      "type": "io.vertx.core.http.Http2Settings",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.jdk-ssl-engine-options",
+      "type": "io.vertx.core.net.JdkSSLEngineOptions",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.key-cert-options",
+      "type": "io.vertx.core.net.KeyCertOptions",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.key-store-options",
+      "type": "io.vertx.core.net.JksOptions",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.log-activity",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.max-chunk-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.max-form-attribute-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.max-header-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.max-initial-line-length",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.max-web-socket-frame-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.max-web-socket-message-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.open-ssl-engine-options",
+      "type": "io.vertx.core.net.OpenSSLEngineOptions",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.pem-key-cert-options",
+      "type": "io.vertx.core.net.PemKeyCertOptions",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.pem-trust-options",
+      "type": "io.vertx.core.net.PemTrustOptions",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.per-frame-web-socket-compression-supported",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.per-message-web-socket-compression-supported",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.pfx-key-cert-options",
+      "type": "io.vertx.core.net.PfxOptions",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.pfx-trust-options",
+      "type": "io.vertx.core.net.PfxOptions",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.port",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.proxy-protocol-timeout",
+      "type": "java.lang.Long",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.proxy-protocol-timeout-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.read-idle-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.receive-buffer-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.reuse-address",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.reuse-port",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.send-buffer-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.sni",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.so-linger",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.ssl",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.ssl-engine-options",
+      "type": "io.vertx.core.net.SSLEngineOptions",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.ssl-handshake-timeout",
+      "type": "java.lang.Long",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.ssl-handshake-timeout-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.tcp-cork",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.tcp-fast-open",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.tcp-keep-alive",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.tcp-no-delay",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.tcp-quick-ack",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.tracing-policy",
+      "type": "io.vertx.core.tracing.TracingPolicy",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.traffic-class",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.trust-options",
+      "type": "io.vertx.core.net.TrustOptions",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.trust-store-options",
+      "type": "io.vertx.core.net.JksOptions",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.use-alpn",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.use-proxy-protocol",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.web-socket-allow-server-no-context",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.web-socket-closing-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.web-socket-compression-level",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.web-socket-preferred-client-no-context",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.web-socket-sub-protocols",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.options.write-idle-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.core.http.HttpServerOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.endpoints",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.master-name",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.max-nested-arrays",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.max-pool-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.max-pool-waiting",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.max-waiting-handlers",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.net-client-options",
+      "type": "io.vertx.core.net.NetClientOptions",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.password",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.pool-cleaner-interval",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.pool-name",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.pool-recycle-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.protocol-negotiation",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.role",
+      "type": "io.vertx.redis.client.RedisRole",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.type",
+      "type": "io.vertx.redis.client.RedisClientType",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.use-replicas",
+      "type": "io.vertx.redis.client.RedisReplicas",
+      "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.redis.options.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.redis.client.RedisOptions",
+      "deprecated": true,
+      "deprecation": {}
+    }
+  ],
+  "hints": []
+}
