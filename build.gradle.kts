@@ -20,9 +20,7 @@ dependencies {
     api("com.github.rssh:dotty-cps-async_3:0.9.8") // async和 await支持
     api("io.vertx:vertx-redis-client:${vertxVersion}")
     api("io.vertx:vertx-web-client:${vertxVersion}")
-    api("io.vertx:vertx-web:${vertxVersion}") {
-        exclude("com.fasterxml.jackson.core") //因为不使用vertx的json功能，所以直接去掉jackson，序列化框架使用circe
-    }
+    api("io.vertx:vertx-web:${vertxVersion}")
     api("ch.qos.logback:logback-classic:1.2.11")
     api("com.typesafe.scala-logging:scala-logging_3:3.9.4")
     api("org.scala-lang:scala3-library_3:3.1.1")
@@ -47,5 +45,10 @@ publishing {
             username = project.ext["mavenUsername"].toString()
             password = project.ext["mavenPassword"].toString()
         }
+    }
+}
+configurations{
+    all {
+        exclude("com.fasterxml.jackson.core")
     }
 }
