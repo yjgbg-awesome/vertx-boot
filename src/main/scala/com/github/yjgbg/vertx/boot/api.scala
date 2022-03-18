@@ -1,7 +1,7 @@
 package com.github.yjgbg.vertx.boot
 
 object api extends api
-trait api extends valid.CoreSyntax:
+trait api extends valid.CoreSyntax,redis.RedisSyntax:
   type Logger = com.typesafe.scalalogging.Logger
   type CoreConfig = core.CoreConfig
   type VerticleBean = core.VerticleBean
