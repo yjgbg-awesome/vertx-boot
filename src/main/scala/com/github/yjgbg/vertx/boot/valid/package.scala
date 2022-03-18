@@ -5,7 +5,7 @@ package object valid:
   import valid.Macros
   import valid.core.*
 
-  trait CoreSyntax extends ResultSyntax, ValidatorSyntax
+  trait CoreSyntax extends ResultSyntax, ValidatorSyntax,ValidatorExtSyntax
 
   object CoreSyntax extends CoreSyntax
 
