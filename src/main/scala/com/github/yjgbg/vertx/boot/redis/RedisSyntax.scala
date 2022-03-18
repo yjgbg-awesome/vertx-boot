@@ -17,12 +17,12 @@ trait RedisSyntax:
       case string:String => Request.cmd(command).arg(string)
       case boolean:Boolean => Request.cmd(command).arg(boolean)
     }
-    
+
   extension (request:Request)
     def send(using redis:Redis): Future[Response] = redis.send(request)
   import scala.jdk.CollectionConverters.*
   extension (iterable:Iterable[Request])
-    def send(using redis:Redis): Future[Seq[Response]] = redis.batch(iterable.toSeq.asJava)
+    def batchSend(using redis:Redis): Future[Seq[Response]] = redis.batch(iterable.toSeq.asJava)
       .map(_.asScala.toSeq)
   extension (iterable:java.util.Collection[Request])
     def send(using redis:Redis):Future[Seq[Response]] = redis.batch(iterable match {
