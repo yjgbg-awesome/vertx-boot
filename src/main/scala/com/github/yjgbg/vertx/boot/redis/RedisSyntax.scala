@@ -3,6 +3,9 @@ package com.github.yjgbg.vertx.boot.redis
 import io.vertx.core.Future
 import io.vertx.redis.client.{Command, Redis, Request, Response}
 
+import java.util.stream.Collectors
+
+object RedisSyntax extends  RedisSyntax
 trait RedisSyntax:
   import io.vertx.core.buffer.Buffer
   extension (command:Command)
@@ -27,5 +30,5 @@ trait RedisSyntax:
   extension (iterable:java.util.Collection[Request])
     def send(using redis:Redis):Future[Seq[Response]] = redis.batch(iterable match {
       case list:java.util.List[Request] => list
-      case _:java.util.Collection[Request] => iterable.stream.toList
+      case _:java.util.Collection[Request] => iterable.stream.collect(Collectors.toList)
     }).map(_.asScala.toSeq)

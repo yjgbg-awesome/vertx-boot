@@ -1,6 +1,6 @@
 package com.github.yjgbg.vertx.boot.valid
 
-import com.github.yjgbg.vertx.boot.api.given
+import com.github.yjgbg.vertx.boot.syntax.CpsSyntax.given
 import cps.{async, await}
 import io.vertx.core.Future
 

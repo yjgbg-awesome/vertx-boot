@@ -1,4 +1,4 @@
-package com.github.yjgbg.vertx.boot.support
+package com.github.yjgbg.vertx.boot.vertxCps
 
 import cps.{CpsMonadInstanceContext, CpsSchedulingMonad}
 import io.vertx.core.{Future, Promise}

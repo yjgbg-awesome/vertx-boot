@@ -1,7 +1,7 @@
 package com.github.yjgbg.vertx.boot
 
 object api extends api
-trait api extends valid.CoreSyntax,redis.RedisSyntax:
+trait api:
   type Logger = com.typesafe.scalalogging.Logger
   type CoreConfig = core.CoreConfig
   type VerticleBean = core.VerticleBean
@@ -17,7 +17,7 @@ trait api extends valid.CoreSyntax,redis.RedisSyntax:
   type HttpStatus = http.server.HttpStatus
   type ResponseHeaders = http.server.ResponseHeaders
   type RedisConfig = redis.RedisConfig
-  type VertxCpsMonad = support.VertxCpsMonad
+  type VertxCpsMonad = vertxCps.VertxCpsMonad
   type Validator[A] = valid.core.Validator[A]
   type Result = valid.core.Result
   val Logger: com.typesafe.scalalogging.Logger.type = com.typesafe.scalalogging.Logger
@@ -27,7 +27,6 @@ trait api extends valid.CoreSyntax,redis.RedisSyntax:
   val ExceptionHandler:http.server.ExceptionHandler.type =http.server.ExceptionHandler
   val HttpRequest: http.server.HttpRequest.type = http.server.HttpRequest
   val HttpResponse: http.server.HttpResponse.type = http.server.HttpResponse
-  val VertxCpsMonad: support.VertxCpsMonad.type = support.VertxCpsMonad
+  val VertxCpsMonad: vertxCps.VertxCpsMonad.type = vertxCps.VertxCpsMonad
   val Validator: valid.core.Validator.type = valid.core.Validator
   val Result: valid.core.Result.type = valid.core.Result
-  given VertxCpsMonad = VertxCpsMonad

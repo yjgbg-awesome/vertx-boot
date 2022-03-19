@@ -9,7 +9,7 @@ import io.vertx.ext.web.RoutingContext
 import scala.reflect.ClassTag
 
 import cps.{async,await}
-import api.given_VertxCpsMonad
+import syntax.CpsSyntax.given_VertxCpsMonad
 
 case class Controller[A: io.circe.Decoder, B: io.circe.Encoder]
 (requestLine: Seq[RequestLine], callback: HttpRequest[A] => Future[HttpResponse[B]]):

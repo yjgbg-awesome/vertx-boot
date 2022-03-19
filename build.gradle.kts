@@ -6,12 +6,13 @@ plugins {
 
 group = "com.github.yjgbg"
 version = "1.0-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
 }
 val springVersion = "2.6.4"
-val vertxVersion = "4.2.5"
+val vertxVersion = "4.2.6"
 dependencies {
     api("io.circe:circe-parser_3:0.15.0-M1")
     api("io.circe:circe-generic_3:0.15.0-M1")
@@ -26,10 +27,6 @@ dependencies {
     api("org.scala-lang:scala3-library_3:3.1.1")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-}
-
-tasks.getByName<Test>("test") {
-    useJUnitPlatform()
 }
 
 java {

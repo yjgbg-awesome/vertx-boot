@@ -1,0 +1,35 @@
+package com.github.yjgbg.vertx.boot.valid
+
+import core.{ErrorMsg, Validator}
+
+
+object ValidatorExtSyntax extends ValidatorExtSyntax
+
+trait ValidatorExtSyntax:
+
+  import ValidatorSyntax.and
+  import cats.syntax.all.*
+  import cps.async
+  import com.github.yjgbg.vertx.boot.vertxCps.CpsSyntax.given_VertxCpsMonad
+
+  extension[A] (it: Validator[A])
+    inline def notNull[B](inline getter: A => B, errorMsg: ErrorMsg[B]): Validator[A] =
+      it.and(getter, errorMsg, it => async(it != null))
+    inline def eq[B: cats.Eq](inline getter: A => B, errorMsg: ErrorMsg[B], value: B) =
+      it.and(getter, errorMsg, it => async(it === value))
+    inline def ne[B: cats.Eq](inline getter: A => B, errorMsg: ErrorMsg[B], value: B) =
+      it.and(getter, errorMsg, it => async(it =!= value))
+    inline def gt[B: cats.Order](inline getter: A => B, errorMsg: ErrorMsg[B], value: B) =
+      it.and(getter, errorMsg, it => async(it.compare(value) > 0))
+    inline def ge[B: cats.Order](inline getter: A => B, errorMsg: ErrorMsg[B], value: B) =
+      it.and(getter, errorMsg, it => async(it.compare(value) >= 0))
+    inline def lt[B: cats.Order](inline getter: A => B, errorMsg: ErrorMsg[B], value: B) =
+      it.and(getter, errorMsg, it => async(it.compare(value) < 0))
+    inline def le[B: cats.Order](inline getter: A => B, errorMsg: ErrorMsg[B], value: B) =
+      it.and(getter, errorMsg, it => async(it.compare(value) <= 0))
+    inline def between[B: cats.Order](inline getter: A => B, errorMsg: ErrorMsg[B], lowerBound: B, upperBound: B) =
+      it.ge(getter, errorMsg, lowerBound).le(getter, errorMsg, upperBound)
+    inline def notBlank[B <: CharSequence](inline getter: A => B, errorMsg: ErrorMsg[B], allowNull: Boolean) =
+      it.and(getter, errorMsg, b => async(if (b == null) allowNull else b.length() > 0))
+    inline def notEmpty[B <: java.util.Collection[_]](inline getter: A => B, errorMsg: ErrorMsg[B]) =
+      it.and(getter, errorMsg, b => async(b != null && b.size =!= 0))
