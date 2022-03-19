@@ -30,4 +30,4 @@ package object server:
       case None => (status,header,None)
       case _ => (status, header, Some(body.asInstanceOf[A]))
     }
-  case class ExceptionHandler[A <: Throwable :ClassTag](predicate: A => Boolean,callback: (RoutingContext,A) => Unit)
+  case class ExceptionHandler[A <: Throwable :ClassTag](predicate: A => Boolean = (it:A) => it.isInstanceOf[A],callback: (RoutingContext,A) => Unit)
