@@ -22,4 +22,4 @@ jobs:
       - name: Publish with Gradle
         run: |
           chmod +x gradlew
-          ./gradlew publishThisPublicationToCentralSnapshotRepository -PmavenUsername=${{ secrets.M2_USERNAME }} -PmavenPassword=${{ secrets.M2_PASSWORD}}
+          ./gradlew publishSnapshotPublicationToCentralSnapshotRepository -PmavenUsername=${{ secrets.M2_USERNAME }} -PmavenPassword=${{ secrets.M2_PASSWORD}}

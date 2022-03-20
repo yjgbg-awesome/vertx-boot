@@ -26,8 +26,18 @@ dependencies {
 }
 
 publishing {
-    publications.create<MavenPublication>("this") {
+    publications.create<MavenPublication>("snapshot") {
         from(components["java"])
+        pom {
+            version = "1.0-SNAPSHOT"
+        }
+    }
+
+    publications.create<MavenPublication>("release") {
+        from(components["java"])
+        pom {
+            version = "1.0"
+        }
     }
     repositories.maven("https://oss.sonatype.org/content/repositories/snapshots") {
         name = "centralSnapshot"
