@@ -36,6 +36,13 @@ publishing {
             password = project.ext["mavenPassword"].toString()
         }
     }
+    repositories.mavenCentral() {
+        name = "central"
+        credentials {
+            username = project.ext["mavenUsername"].toString()
+            password = project.ext["mavenPassword"].toString()
+        }
+    }
 }
 configurations{
     all {
