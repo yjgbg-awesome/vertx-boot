@@ -12,7 +12,7 @@ case class HttpRequest[A: io.circe.Decoder](routingContext: RoutingContext):
   def body: Future[A] = routingContext.request().body()
     .map(buffer => buffer.toString).asInstanceOf[Future[String]]
     .flatMap(string => decode[A](string) match {
-      case Left(value) => Future.failedFuture(value)
+      case Left(throwable) => Future.failedFuture(throwable)
       case Right(value) => Future.succeededFuture(value)
     })
 

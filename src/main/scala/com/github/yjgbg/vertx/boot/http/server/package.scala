@@ -1,6 +1,7 @@
 package com.github.yjgbg.vertx.boot
 package http
 
+import io.vertx.core.Future
 import io.vertx.ext.web.RoutingContext
 
 import scala.reflect.ClassTag
@@ -13,15 +14,24 @@ package object server:
     408 | 409 | 410 | 411 | 412 | 413 | 414 | 415 | 416 | 417 | 421 | 422 | 423 | 424 | 425 |
     426 | 428 | 429 | 431 | 500 | 501 | 502 | 503 | 504 | 505 | 506 | 507 | 510 | 511
   type ResponseHeaders = Map[String, String]
-  type HttpResponse[A] = (HttpStatus, ResponseHeaders, Option[A])
-  extension [A:io.circe.Encoder] (httpResponse:HttpResponse[A])
-    def use(ctx: RoutingContext) = {
-      ctx.response().setStatusCode(httpResponse._1)
-      httpResponse._2.foreach(ctx.response().putHeader(_,_))
-      import io.circe.syntax.*
-      httpResponse._3 match
-        case Some(value) => ctx.response().end(value.asJson.noSpaces)
-        case None => ctx.response().end()
+  type HttpResponse[A] = (HttpStatus, ResponseHeaders, Option[A])|Option[A]|A
+  extension [A] (httpResponse:HttpResponse[A])
+    def use(ctx: RoutingContext)(using encoder: io.circe.Encoder[A]):Future[Unit] = httpResponse match {
+      case (status: HttpStatus,headers,Some(body)) =>
+        ctx.response().setStatusCode(status)
+        headers.asInstanceOf[ResponseHeaders].foreach(ctx.response().putHeader(_,_))
+        ctx.response().end(encoder(body.asInstanceOf[A]).noSpaces).asInstanceOf
+      case (status: HttpStatus,headers,None) =>
+        ctx.response().setStatusCode(status)
+        headers.asInstanceOf[ResponseHeaders].foreach(ctx.response().putHeader(_,_))
+        ctx.response().end().asInstanceOf
+      case Some(body) => ctx.response().setStatusCode(200)
+        .putHeader("ContentType","application/json")
+        .end(encoder(body.asInstanceOf[A]).noSpaces).asInstanceOf
+      case None => ctx.response().setStatusCode(200).end().asInstanceOf
+      case body => ctx.response().setStatusCode(200)
+        .putHeader("ContentType","application/json")
+        .end(encoder(body.asInstanceOf[A]).noSpaces).asInstanceOf
     }
   object HttpResponse:
     def apply[A](status: HttpStatus = 200,

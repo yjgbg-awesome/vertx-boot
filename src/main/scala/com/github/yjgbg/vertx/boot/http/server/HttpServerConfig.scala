@@ -7,6 +7,7 @@ import io.vertx.core.{DeploymentOptions, Vertx, VertxOptions}
 import io.vertx.ext.web.Router
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Bean
+
 lazy val log:Logger = Logger[HttpServerConfig]
 trait HttpServerConfig:
   self: core.CoreConfig =>
@@ -18,23 +19,26 @@ trait HttpServerConfig:
   @ConfigurationProperties("vertx-boot.http.server.options")
   @Bean def httpServerOptions = new HttpServerOptions()
 
-  @Bean def vertWebHttpVerticleBean(deploymentOptions: DeploymentOptions,
+  @Bean def vertWebHttpVerticleBean(vertx: Vertx,
                                     httpOption: HttpServerOptions,
-                                    controllerList: java.util.List[Controller[_, _]],
+                                    deploymentOptions: DeploymentOptions,
                                     middlewareList: java.util.List[Middleware],
-                                    exceptionHandlerList: java.util.List[ExceptionHandler[Throwable]],
-                                    vertx: Vertx
-                                   ): core.VerticleBean = core.VerticleBean(deploymentOptions, onStart = promise => {
+                                    controllerList: java.util.List[Controller[_, _]],
+                                    exceptionHandlerList: java.util.List[ExceptionHandler[Throwable]]
+                                   ): core.VerticleBean = core.VerticleBean(deploymentOptions, promise => {
     val router = Router.router(vertx)
     middlewareList.forEach(mid => {
       log.info(s"add middleware: ${mid.toString}")
       mid.requestLine.foreach {
-      case (method, path) => router.route(HttpMethod.valueOf(method), path).handler(mid.callback(_))
+      case (method, path) => router
+        .route(HttpMethod.valueOf(method), path)
+        .handler(mid.callback(_))
     }})
     controllerList.forEach { ctl => {
       log.info(s"add controller: ${ctl.toString}")
       ctl.requestLine.foreach {
-        case (method, path) => router.route(HttpMethod.valueOf(method), path)
+        case (method, path) => router
+          .route(HttpMethod.valueOf(method), path)
           .handler(ctx =>ctl.toHandler(exceptionHandlerList).handle(ctx))
       }
     }}
