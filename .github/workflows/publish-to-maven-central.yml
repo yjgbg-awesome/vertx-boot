@@ -1,9 +1,9 @@
-name: Java CI
+name: PublishToMavenCentral
 
 on:
   push:
     tags:
-      - release.**
+      - release#**
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,4 +22,7 @@ jobs:
       - name: Publish with Gradle
         run: |
           chmod +x gradlew
-          ./gradlew publishReleasePublicationToCentralRepository -PmavenUsername=${{ secrets.M2_USERNAME }} -PmavenPassword=${{ secrets.M2_PASSWORD}}
+          ./gradlew publishReleasePublicationToCentralRepository \
+          -PmavenUsername=${{ secrets.M2_USERNAME }} \
+          -PmavenPassword=${{ secrets.M2_PASSWORD }} \
+          -Pversion=${GITHUB_REF##*#}

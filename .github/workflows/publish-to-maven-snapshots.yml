@@ -1,9 +1,9 @@
-name: Java CI
+name: PublishToMavenSnapshots
 
 on:
   push:
     tags:
-      - snapshot.**
+      - snapshot#**
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,4 +22,7 @@ jobs:
       - name: Publish with Gradle
         run: |
           chmod +x gradlew
-          ./gradlew publishSnapshotPublicationToCentralSnapshotRepository -PmavenUsername=${{ secrets.M2_USERNAME }} -PmavenPassword=${{ secrets.M2_PASSWORD}}
+          ./gradlew publishSnapshotPublicationToSnapshotRepository \
+          -PmavenUsername=${{ secrets.M2_USERNAME }} \
+          -PmavenPassword=${{ secrets.M2_PASSWORD }} \
+          -Pversion=${GITHUB_REF##*#}

@@ -5,7 +5,6 @@ plugins {
 }
 
 group = "com.github.yjgbg"
-version = "1.0-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
@@ -25,37 +24,38 @@ dependencies {
     api("org.scala-lang:scala3-library_3:3.1.1")
 }
 
+configurations{
+    all {
+        exclude("com.fasterxml.jackson.core")
+    }
+}
+
 publishing {
     publications.create<MavenPublication>("snapshot") {
         from(components["java"])
         pom {
-            version = "1.0-SNAPSHOT"
+            version = "${project.ext["publicationVersion"].toString()}-SNAPSHOT"
         }
     }
 
     publications.create<MavenPublication>("release") {
         from(components["java"])
         pom {
-            version = "1.0"
+            version = project.ext["publicationVersion"].toString()
         }
     }
     repositories.maven("https://oss.sonatype.org/content/repositories/snapshots") {
-        name = "centralSnapshot"
+        name = "snapshot"
         credentials {
             username = project.ext["mavenUsername"].toString()
             password = project.ext["mavenPassword"].toString()
         }
     }
-    repositories.mavenCentral() {
+    repositories.mavenCentral {
         name = "central"
         credentials {
             username = project.ext["mavenUsername"].toString()
             password = project.ext["mavenPassword"].toString()
         }
-    }
-}
-configurations{
-    all {
-        exclude("com.fasterxml.jackson.core")
     }
 }
