@@ -25,4 +25,4 @@ jobs:
           ./gradlew publishReleasePublicationToCentralRepository \
           -PmavenUsername=${{ secrets.M2_USERNAME }} \
           -PmavenPassword=${{ secrets.M2_PASSWORD }} \
-          -Pversion=${GITHUB_REF##*#}
+          -PpublicationVersion=${GITHUB_REF##*#}
