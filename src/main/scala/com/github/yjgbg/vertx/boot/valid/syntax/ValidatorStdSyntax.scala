@@ -35,3 +35,5 @@ trait ValidatorStdSyntax:
       it.and(getter, errorMsg, b => async(b != null && b.size =!= 0))
     inline def regexp[B <: CharSequence](inline getter:A => B,errorMsg: ErrorMsg[B],allowNull:Boolean,pattern: String) =
       it.and(getter,errorMsg,value => async(if(value == null) allowNull else Pattern.matches(pattern,value)))
+    inline def in[B:cats.Eq](inline getter:A => B,errorMsg: ErrorMsg[B],values:Seq[B]) =
+      it.and(getter,errorMsg,it => async{values.find(b => it === b).isDefined})
