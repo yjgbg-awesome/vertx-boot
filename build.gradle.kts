@@ -37,28 +37,13 @@ configurations{
 }
 
 publishing {
-    publications.create<MavenPublication>("snapshot") {
+    publications.create<MavenPublication>("this") {
         from(components["java"])
         pom {
             version = "${project.ext["publicationVersion"].toString()}-SNAPSHOT"
         }
     }
-
-    publications.create<MavenPublication>("release") {
-        from(components["java"])
-        pom {
-            version = project.ext["publicationVersion"].toString()
-        }
-    }
     repositories.maven("https://oss.sonatype.org/content/repositories/snapshots") {
-        name = "snapshot"
-        credentials {
-            username = project.ext["mavenUsername"].toString()
-            password = project.ext["mavenPassword"].toString()
-        }
-    }
-    repositories.mavenCentral {
-        name = "central"
         credentials {
             username = project.ext["mavenUsername"].toString()
             password = project.ext["mavenPassword"].toString()
