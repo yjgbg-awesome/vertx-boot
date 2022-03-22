@@ -2,6 +2,7 @@
 //import io.vertx.core.VertxOptions;
 //import io.vertx.core.http.HttpServerOptions;
 //import io.vertx.ext.web.client.WebClientOptions;
+//import io.vertx.micrometer.MicrometerMetricsOptions;
 //import io.vertx.redis.client.RedisOptions;
 //import org.springframework.boot.context.properties.ConfigurationProperties;
 //import org.springframework.context.annotation.Bean;
@@ -10,6 +11,11 @@
 //  @ConfigurationProperties("vertx-boot.core.vertx-options")
 //  @Bean public VertxOptions vertxOptions() {
 //    return new VertxOptions();
+//  }
+//
+//  @ConfigurationProperties("vertx-boot.core.vertx-options.metrics-options")
+//  @Bean public MicrometerMetricsOptions metricsOptions() {
+//    return new MicrometerMetricsOptions();
 //  }
 //
 //  @ConfigurationProperties("vertx-boot.http.client.options")

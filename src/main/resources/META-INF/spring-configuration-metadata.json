@@ -3,32 +3,38 @@
     {
       "name": "vertx-boot.core.vertx-options",
       "type": "io.vertx.core.VertxOptions",
-      "sourceType": "com.github.yjgbg.vertx.boot.core.CoreConfig",
-      "sourceMethod": "vertxOptions"
+      "sourceType": "Generator",
+      "sourceMethod": "vertxOptions()"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options",
+      "type": "io.vertx.micrometer.MicrometerMetricsOptions",
+      "sourceType": "Generator",
+      "sourceMethod": "metricsOptions()"
     },
     {
       "name": "vertx-boot.http.client.options",
       "type": "io.vertx.ext.web.client.WebClientOptions",
-      "sourceType": "com.github.yjgbg.vertx.boot.http.client.HttpClientConfig",
-      "sourceMethod": "httpClientOptions"
+      "sourceType": "Generator",
+      "sourceMethod": "httpClientOptions()"
     },
     {
       "name": "vertx-boot.http.server.deployment-options",
       "type": "io.vertx.core.DeploymentOptions",
-      "sourceType": "com.github.yjgbg.vertx.boot.http.server.HttpServerConfig",
-      "sourceMethod": "httpServerDeploymentOptions(io.vertx.core.VertxOptions)"
+      "sourceType": "Generator",
+      "sourceMethod": "httpDeploymentOptions(io.vertx.core.VertxOptions)"
     },
     {
       "name": "vertx-boot.http.server.options",
       "type": "io.vertx.core.http.HttpServerOptions",
-      "sourceType": "com.github.yjgbg.vertx.boot.http.server.HttpServerConfig",
-      "sourceMethod": "httpServerOptions"
+      "sourceType": "Generator",
+      "sourceMethod": "httpServerOptions()"
     },
     {
       "name": "vertx-boot.redis.options",
       "type": "io.vertx.redis.client.RedisOptions",
-      "sourceType": "com.github.yjgbg.vertx.boot.redis.RedisConfig",
-      "sourceMethod": "redisOptions"
+      "sourceType": "Generator",
+      "sourceMethod": "redisOptions()"
     }
   ],
   "properties": [
@@ -111,6 +117,71 @@
       "name": "vertx-boot.core.vertx-options.metrics-options",
       "type": "io.vertx.core.metrics.MetricsOptions",
       "sourceType": "io.vertx.core.VertxOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.disabled-metrics-categories",
+      "type": "java.util.Set<java.lang.String>",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.factory",
+      "type": "io.vertx.core.spi.VertxMetricsFactory",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.influx-db-options",
+      "type": "io.vertx.micrometer.VertxInfluxDbOptions",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.jmx-metrics-options",
+      "type": "io.vertx.micrometer.VertxJmxMetricsOptions",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.jvm-metrics-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.label-matches",
+      "type": "java.util.List<io.vertx.micrometer.Match>",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.labels",
+      "type": "java.util.Set<io.vertx.micrometer.Label>",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.metrics-naming",
+      "type": "io.vertx.micrometer.MetricsNaming",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.micrometer-registry",
+      "type": "io.micrometer.core.instrument.MeterRegistry",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.prometheus-options",
+      "type": "io.vertx.micrometer.VertxPrometheusOptions",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.registry-name",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
+    },
+    {
+      "name": "vertx-boot.core.vertx-options.metrics-options.requests-tags-provider",
+      "type": "java.util.function.Function<io.vertx.core.spi.observability.HttpRequest,java.lang.Iterable<io.micrometer.core.instrument.Tag>>",
+      "sourceType": "io.vertx.micrometer.MicrometerMetricsOptions"
     },
     {
       "name": "vertx-boot.core.vertx-options.prefer-native-transport",
