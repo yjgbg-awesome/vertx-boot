@@ -1,19 +1,19 @@
-package com.github.yjgbg.vertx.boot.valid
+package com.github.yjgbg.vertx.boot
+package valid
+package syntax
 
-import core.{ErrorMsg, Validator}
+import core.*
+import java.util.regex.Pattern
+object ValidatorStdSyntax extends ValidatorStdSyntax
 
-
-object ValidatorExtSyntax extends ValidatorExtSyntax
-
-trait ValidatorExtSyntax:
-
-  import ValidatorSyntax.and
+trait ValidatorStdSyntax:
+  import ValidatorCoreSyntax.and
   import cats.syntax.all.*
   import cps.async
-  import com.github.yjgbg.vertx.boot.vertxCps.CpsSyntax.given_VertxCpsMonad
+  import vertxCps.CpsSyntax.given_VertxCpsMonad
 
   extension[A] (it: Validator[A])
-    inline def notNull[B](inline getter: A => B, errorMsg: ErrorMsg[B]): Validator[A] =
+    inline def notNull[B](inline getter: A => B, errorMsg: ErrorMsg[B]) =
       it.and(getter, errorMsg, it => async(it != null))
     inline def eq[B: cats.Eq](inline getter: A => B, errorMsg: ErrorMsg[B], value: B) =
       it.and(getter, errorMsg, it => async(it === value))
@@ -33,3 +33,5 @@ trait ValidatorExtSyntax:
       it.and(getter, errorMsg, b => async(if (b == null) allowNull else b.length() > 0))
     inline def notEmpty[B <: java.util.Collection[_]](inline getter: A => B, errorMsg: ErrorMsg[B]) =
       it.and(getter, errorMsg, b => async(b != null && b.size =!= 0))
+    inline def regexp[B <: CharSequence](inline getter:A => B,errorMsg: ErrorMsg[B],allowNull:Boolean,pattern: String) =
+      it.and(getter,errorMsg,value => async(if(value == null) allowNull else Pattern.matches(pattern,value)))
