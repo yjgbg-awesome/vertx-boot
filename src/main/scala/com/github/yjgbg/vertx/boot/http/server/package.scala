@@ -16,7 +16,7 @@ package object server:
   type ResponseHeaders = Map[String, String]
   type HttpResponse[A] = (HttpStatus, ResponseHeaders, Option[A])|Option[A]|A
   extension [A] (httpResponse:HttpResponse[A])
-    def use(ctx: RoutingContext)(using encoder: io.circe.Encoder[A]):Future[Unit] = httpResponse match {
+    def use(ctx: RoutingContext)(using encoder: io.circe.Encoder[A]):Future[Unit] = httpResponse match 
       case (status: HttpStatus,headers,Some(body)) =>
         ctx.response().setStatusCode(status)
         headers.asInstanceOf[ResponseHeaders].foreach(ctx.response().putHeader(_,_))
@@ -32,7 +32,6 @@ package object server:
       case body => ctx.response().setStatusCode(200)
         .putHeader("ContentType","application/json")
         .end(encoder(body.asInstanceOf[A]).noSpaces).asInstanceOf
-    }
   object HttpResponse:
     def apply[A](status: HttpStatus = 200,
                  header: ResponseHeaders = Map(),
@@ -40,4 +39,8 @@ package object server:
       case None => (status,header,None)
       case _ => (status, header, Some(body.asInstanceOf[A]))
     }
-  case class ExceptionHandler[A <: Throwable :ClassTag](predicate: A => Boolean = (it:A) => it.isInstanceOf[A],callback: (RoutingContext,A) => Unit)
+  case class ExceptionHandler[A <: Throwable :ClassTag]
+  (
+    predicate: A => Boolean = (it:A) => it.isInstanceOf[A],
+    callback: (RoutingContext,A) => Unit
+  )

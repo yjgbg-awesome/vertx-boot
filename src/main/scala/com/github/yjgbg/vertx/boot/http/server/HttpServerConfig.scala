@@ -36,10 +36,10 @@ trait HttpServerConfig:
     }})
     controllerList.forEach { ctl => {
       log.info(s"add controller: ${ctl.toString}")
+      val handler = ctl.toHandler(exceptionHandlerList)
       ctl.requestLine.foreach {
-        case (method, path) => router
-          .route(HttpMethod.valueOf(method), path)
-          .handler(ctx =>ctl.toHandler(exceptionHandlerList).handle(ctx))
+        case (method, path) => router.route(HttpMethod.valueOf(method), path)
+          .handler(ctx =>handler.handle(ctx))
       }
     }}
     vertx.createHttpServer(httpOption).requestHandler(router).listen()

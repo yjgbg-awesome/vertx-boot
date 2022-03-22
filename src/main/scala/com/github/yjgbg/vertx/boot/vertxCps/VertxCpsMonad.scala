@@ -27,7 +27,6 @@ class VertxCpsMonad extends CpsSchedulingMonad[io.vertx.core.Future],CpsMonadIns
 
   override def restore[A](fa: Future[A])(fx: Throwable => Future[A]): Future[A] = super.restore(fa)(fx)
 
-  // 此处ide的检测出现了错误，因为高阶函数，这确实是一个重载了基类方法的方法
   override def adoptCallbackStyle[A](source: (Try[A] => Unit) => Unit): Future[A] = {
     val promise = Promise.promise[Try[A]]()
     source(promise.complete)
