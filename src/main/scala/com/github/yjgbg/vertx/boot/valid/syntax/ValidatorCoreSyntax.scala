@@ -5,7 +5,7 @@ package syntax
 import core.{Constraint, ErrorMsg, FailFast, Getter, Validator}
 
 trait ValidatorCoreSyntax:
-  private inline def getter[A, B](inline getter: A => B): Getter[A, B] = (Macros.propName(getter), getter)
+  inline def getter[A, B](inline getter: A => B): Getter[A, B] = (Macros.propName(getter), getter)
   extension[A] (it: Validator[A])
     def +[B](validator: Validator[B]): Validator[A & B] = Validator.plus(it, validator)
     def `for`[B <: A]: Validator[B] = it
@@ -22,7 +22,4 @@ trait ValidatorCoreSyntax:
     }
     inline def andIter[B](inline prop: A => Iterable[B], errorMsg: ErrorMsg[B], constraint: Constraint[B]): Validator[A] =
       Validator.plus(it, Validator.transform(getter(prop), Validator.simple(errorMsg, constraint).iter))
-  extension[A] (it: FailFast => A)
-    def failFast: A = it(true)
-    def nonFailFast: A = it(false)
 object ValidatorCoreSyntax extends ValidatorCoreSyntax
