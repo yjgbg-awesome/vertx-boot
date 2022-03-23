@@ -42,11 +42,9 @@ object core:
     def apply[A]: Validator[A] = none
 
     // 简单校验器
-    def simple[A](errorMsg: ErrorMsg[A], constraint: Constraint[A]): FailFast => Parallel => A => Future[Result] =
+    def simple[A](errorMsg: ErrorMsg[A], constraint: Constraint[A]): Validator[A] =
       failFast => parallel => a => async {
-        if (await {
-          constraint(a)
-        }) Result.None else errorMsg match
+        if (await(constraint(a))) Result.None else errorMsg match
           case string: String => Result.Simple(a, string)
           case func: (A => String) => Result.Simple(a, func(a))
       }

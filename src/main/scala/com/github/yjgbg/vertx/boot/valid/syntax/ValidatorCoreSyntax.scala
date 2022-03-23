@@ -7,8 +7,9 @@ import core.{Constraint, ErrorMsg, FailFast, Getter, Validator}
 trait ValidatorCoreSyntax:
   inline def getter[A, B](inline getter: A => B): Getter[A, B] = (Macros.propName(getter), getter)
   extension[A] (it: Validator[A])
-    def +[B](validator: Validator[B]): Validator[A & B] = Validator.plus(it, validator)
-    def `for`[B <: A]: Validator[B] = it
+    def plus[B](validator: Validator[B]): Validator[A & B] = Validator.plus(it, validator)
+    def plus(errorMsg:ErrorMsg[A],constraint: Constraint[A]):Validator[A] =
+      it.plus(Validator.simple(errorMsg,constraint))
     inline def and[B](inline prop: A => B, validator: Validator[B]): Validator[A] =
       Validator.plus(it, Validator.transform(getter(prop), validator))
     inline def and[B](inline prop: A => B, errorMsg: ErrorMsg[B], constraint: Constraint[B]): Validator[A] =
