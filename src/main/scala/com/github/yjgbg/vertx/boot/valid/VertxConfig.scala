@@ -7,6 +7,7 @@ import syntax.AllSyntax.*
 
 case class ResultHasError(result: kernel.Result) extends RuntimeException(null,null,false,false)
 // int.maxValue为最低优先级
+val log = com.typesafe.scalalogging.Logger[ValidConfig]
 trait ValidConfig(priority: Int):
   self: http.server.HttpServerConfig & core.CoreConfig =>
   @Bean def resultHasErrorHandler: http.server.ExceptionHandler[ResultHasError] =
@@ -22,5 +23,6 @@ trait ValidConfig(priority: Int):
     order = Int.MaxValue,
     callback = (ctx:RoutingContext,thr: Throwable) => {
       ctx.response().setStatusCode(500).end(if(thr.getMessage!= null) thr.getMessage else thr.toString)
+      log.error("an unexpected error happened",thr)
     }
   )
