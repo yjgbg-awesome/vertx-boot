@@ -6,16 +6,17 @@ import kernel.*
 
 import java.util.regex.Pattern
 
-object ValidatorStdSyntax extends ValidatorStdSyntax
+object StdSyntax extends StdSyntax
 
-trait ValidatorStdSyntax:
+trait StdSyntax:
 
-  import ValidatorCoreSyntax.and
+  import CoreSyntax.*
   import cats.syntax.all.*
   import cps.async
   import vertxCps.CpsSyntax.given
 
   extension[A] (it: Validator[A])
+    inline def notNull(errorMsg: ErrorMsg[A]):Validator[A] = it.plus(errorMsg,it => async(it != null))
     inline def notNull[B](inline getter: A => B, errorMsg: ErrorMsg[B]): Validator[A] =
       it.and(getter, errorMsg, it => async(it != null))
     inline def eq[B: cats.Eq](inline getter: A => B, errorMsg: ErrorMsg[B], value: B): Validator[A] =
