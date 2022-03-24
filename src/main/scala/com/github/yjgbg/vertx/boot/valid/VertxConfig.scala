@@ -12,8 +12,15 @@ trait ValidConfig(priority: Int):
   @Bean def resultHasErrorHandler: http.server.ExceptionHandler[ResultHasError] =
     http.server.ExceptionHandler[ResultHasError](
       order = priority,
+      predicate = _.isInstanceOf[ResultHasError],
       callback = (ctx: RoutingContext, thr: ResultHasError) => {
         val encoder = io.circe.Encoder.encodeMap[String, Set[String]]
         ctx.response().setStatusCode(422).end(encoder(thr.result.toMessageMap).noSpaces)
       }
     )
+  @Bean def throwableHandler: http.server.ExceptionHandler[Throwable] = http.server.ExceptionHandler[Throwable](
+    order = Int.MaxValue,
+    callback = (ctx:RoutingContext,thr: Throwable) => {
+      ctx.response().setStatusCode(500).end(if(thr.getMessage!= null) thr.getMessage else thr.toString)
+    }
+  )

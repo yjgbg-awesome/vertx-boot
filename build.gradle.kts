@@ -41,6 +41,10 @@ configurations{
     }
 }
 
+java {
+    withSourcesJar()
+}
+
 publishing {
     publications.create<MavenPublication>("this") {
         from(components["java"])

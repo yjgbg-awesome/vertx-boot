@@ -20,11 +20,11 @@ trait HttpServerConfig:
   @Bean def httpServerOptions = new HttpServerOptions()
 
   @Bean def vertWebHttpVerticleBean(vertx: Vertx,
-                                    httpOption: HttpServerOptions,
+                                    httpOptions: HttpServerOptions,
                                     deploymentOptions: DeploymentOptions,
                                     middlewareList: java.util.List[Middleware],
                                     controllerList: java.util.List[Controller[_, _]],
-                                    exceptionHandlerList: java.util.List[ExceptionHandler[Throwable]]
+                                    exceptionHandlerList: java.util.List[ExceptionHandler[_]]
                                    ): core.VerticleBean = core.VerticleBean(deploymentOptions, promise => {
     val router = Router.router(vertx)
     middlewareList.forEach(mid => {
@@ -36,15 +36,15 @@ trait HttpServerConfig:
     }})
     controllerList.forEach { ctl => {
       log.info(s"add controller: ${ctl.toString}")
-      val handler = ctl.toHandler(exceptionHandlerList)
+      val handler = ctl.toHandler(exceptionHandlerList.asInstanceOf)
       ctl.requestLine.foreach {
         case (method, path) => router.route(HttpMethod.valueOf(method), path)
           .handler(ctx =>handler.handle(ctx))
       }
     }}
-    vertx.createHttpServer(httpOption).requestHandler(router).listen()
+    vertx.createHttpServer(httpOptions).requestHandler(router).listen()
       .onSuccess(it => {
-        log.info(s"http server started on host = ${httpOption.getHost},port = ${httpOption.getPort}")
+        log.info(s"http server started on host = ${httpOptions.getHost},port = ${httpOptions.getPort}")
         promise.complete()
       })
       .onFailure(thr => {
