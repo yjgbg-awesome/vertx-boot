@@ -11,6 +11,8 @@ group = "com.github.yjgbg"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
+    mavenLocal()
+    maven("https://maven.aliyun.com/repository/public")
     mavenCentral()
 }
 val springVersion = "2.6.4"

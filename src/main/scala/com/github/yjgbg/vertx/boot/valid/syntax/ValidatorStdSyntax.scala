@@ -2,7 +2,7 @@ package com.github.yjgbg.vertx.boot
 package valid
 package syntax
 
-import core.*
+import kernel.*
 
 import java.util.regex.Pattern
 
@@ -13,7 +13,7 @@ trait ValidatorStdSyntax:
   import ValidatorCoreSyntax.and
   import cats.syntax.all.*
   import cps.async
-  import vertxCps.CpsSyntax.given_VertxCpsMonad
+  import vertxCps.CpsSyntax.given
 
   extension[A] (it: Validator[A])
     inline def notNull[B](inline getter: A => B, errorMsg: ErrorMsg[B]): Validator[A] =
@@ -38,5 +38,5 @@ trait ValidatorStdSyntax:
       it.and(getter, errorMsg, b => async(b != null && b.size =!= 0))
     inline def regexp[B <: CharSequence](inline getter: A => B, errorMsg: ErrorMsg[B], allowNull: Boolean, pattern: String): Validator[A] =
       it.and(getter, errorMsg, it => async(if (it == null) allowNull else Pattern.matches(pattern, it)))
-    inline def exist[B: cats.Eq](inline getter: A => B, errorMsg: ErrorMsg[B], values: Seq[B]): Validator[A] =
+    inline def in[B: cats.Eq](inline getter: A => B, errorMsg: ErrorMsg[B], values: Seq[B]): Validator[A] =
       it.and(getter, errorMsg, it => async (values.find(b => it === b).isDefined))

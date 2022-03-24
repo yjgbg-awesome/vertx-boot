@@ -2,7 +2,7 @@ package com.github.yjgbg.vertx.boot
 package valid
 package syntax
 
-import core.{Constraint, ErrorMsg, FailFast, Getter, Validator}
+import kernel.{Constraint, ErrorMsg, FailFast, Getter, Validator}
 
 trait ValidatorCoreSyntax:
   inline def getter[A, B](inline getter: A => B): Getter[A, B] = (Macros.propName(getter), getter)

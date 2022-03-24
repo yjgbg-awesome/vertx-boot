@@ -6,7 +6,7 @@ import io.vertx.core.Future
 
 import java.util
 
-object core:
+object kernel:
   object Result:
     case object None
 
