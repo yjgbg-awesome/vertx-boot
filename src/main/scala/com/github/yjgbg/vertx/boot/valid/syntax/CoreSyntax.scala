@@ -43,7 +43,7 @@ trait CoreSyntax:
         .map { case (value:A, i) => Validator.transform[CC[A], A]((i.toString, _ => value), it) }
         .foldLeft(Validator.none)(Validator.plus)
     }
-    inline def andIter[B](inline prop: A => Iterable[B], errorMsg: ErrorMsg[B], constraint: Constraint[B]): Validator[A] =
+    inline def andItem[B](inline prop: A => Iterable[B], errorMsg: ErrorMsg[B], constraint: Constraint[B]): Validator[A] =
       Validator.plus(it, Validator.transform(getter(prop), Validator.simple(errorMsg, constraint).iterable))
 
 object CoreSyntax extends CoreSyntax

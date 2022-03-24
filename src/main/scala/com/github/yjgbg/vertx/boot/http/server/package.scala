@@ -41,6 +41,8 @@ package object server:
     }
   case class ExceptionHandler[A <: Throwable :ClassTag]
   (
+    order:Int = org.springframework.core.Ordered.LOWEST_PRECEDENCE,
     predicate: A => Boolean = (it:A) => it.isInstanceOf[A],
     callback: (RoutingContext,A) => Unit
-  )
+  )extends org.springframework.core.Ordered:
+    override def getOrder: Int = order
