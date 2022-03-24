@@ -7,7 +7,7 @@ import syntax.AllSyntax.*
 
 case class ResultHasError(result: kernel.Result) extends RuntimeException(null,null,false,false)
 // int.maxValue为最低优先级
-trait ValidConfig(priority: Int = Int.MaxValue):
+trait ValidConfig(priority: Int):
   self: http.server.HttpServerConfig & core.CoreConfig =>
   @Bean def resultHasErrorHandler: http.server.ExceptionHandler[ResultHasError] =
     http.server.ExceptionHandler[ResultHasError](
