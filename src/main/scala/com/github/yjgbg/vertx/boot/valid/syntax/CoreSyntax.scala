@@ -41,7 +41,7 @@ trait CoreSyntax:
     def iterable[CC[_] <: Iterable[_]]: Validator[CC[A]] = Validator.func {
       case null => Validator.none
       case iterable => iterable.zipWithIndex
-        .map { case (value:A, i) => Validator.transform[CC[A], A]((i.toString, _ => value), it) }
+        .map { case (value, i) => Validator.transform[CC[A], A]((i.toString, _ => value.asInstanceOf[A]), it) }
         .foldLeft(Validator.none)(Validator.plus)
     }
     inline def andItem[B](inline prop: A => Iterable[B], errorMsg: ErrorMsg[B], constraint: Constraint[B]): Validator[A] =

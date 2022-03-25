@@ -16,6 +16,8 @@ trait api:
   type RequestLine = http.server.RequestLine
   type HttpStatus = http.server.HttpStatus
   type ResponseHeaders = http.server.ResponseHeaders
+  type MySQLConfig = sql.config.MySQLConfig
+  type TypedSQLClient = sql.TypedSQLClient
   type RedisConfig = redis.RedisConfig
   type ValidConfig = valid.ValidConfig
   type Validator[A] = valid.kernel.Validator[A]
