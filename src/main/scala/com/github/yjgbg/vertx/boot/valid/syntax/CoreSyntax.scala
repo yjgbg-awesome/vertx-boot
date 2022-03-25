@@ -26,6 +26,7 @@ trait CoreSyntax:
       case Result.Plus(r0, r1) => Result.Plus(r0.mapMessage(func), r1.mapMessage(func))
       case Result.Transformation(field, fieldResult) => Result.Transformation(field, fieldResult.mapMessage(func))
 
+    def throwIfHasError(): Unit = if (r.hasError) throw ResultHasError(r)
   inline def getter[A, B](inline getter: A => B): Getter[A, B] = (Macros.propName(getter), getter)
 
   extension[A] (it: Validator[A])

@@ -11,8 +11,8 @@ case class HttpRequest[A: io.circe.Decoder](routingContext: RoutingContext):
   import io.circe.parser.decode
   def body: Future[A] = routingContext.request().body()
     .map(buffer => buffer.toString).asInstanceOf[Future[String]]
-    .flatMap(string => decode[A](string) match {
-      case Left(throwable) => Future.failedFuture(throwable)
-      case Right(value) => Future.succeededFuture(value)
-    })
+    .map(string => decode[A](string) match {
+      case Left(throwable) => throw throwable
+      case Right(value) =>value
+    }).asInstanceOf
 
