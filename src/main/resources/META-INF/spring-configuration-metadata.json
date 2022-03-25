@@ -31,6 +31,18 @@
       "sourceMethod": "httpServerOptions()"
     },
     {
+      "name": "vertx-boot.mysql.connection-options",
+      "type": "io.vertx.mysqlclient.MySQLConnectOptions",
+      "sourceType": "Generator",
+      "sourceMethod": "mySQLConnectOptions()"
+    },
+    {
+      "name": "vertx-boot.mysql.pool-options",
+      "type": "io.vertx.sqlclient.PoolOptions",
+      "sourceType": "Generator",
+      "sourceMethod": "poolOptions()"
+    },
+    {
       "name": "vertx-boot.redis.options",
       "type": "io.vertx.redis.client.RedisOptions",
       "sourceType": "Generator",
@@ -1004,6 +1016,376 @@
       "sourceType": "io.vertx.core.http.HttpServerOptions"
     },
     {
+      "name": "vertx-boot.mysql.connection-options.activity-log-data-format",
+      "type": "io.netty.handler.logging.ByteBufFormat",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.application-layer-protocols",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.authentication-plugin",
+      "type": "io.vertx.mysqlclient.MySQLAuthenticationPlugin",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.cache-prepared-statements",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.character-encoding",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.charset",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.collation",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.connect-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.crl-paths",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.crl-values",
+      "type": "java.util.List<io.vertx.core.buffer.Buffer>",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.database",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.enabled-cipher-suites",
+      "type": "java.util.Set<java.lang.String>",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.enabled-secure-transport-protocols",
+      "type": "java.util.Set<java.lang.String>",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.host",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.hostname-verification-algorithm",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.idle-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.idle-timeout-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.jdk-ssl-engine-options",
+      "type": "io.vertx.core.net.JdkSSLEngineOptions",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.key-cert-options",
+      "type": "io.vertx.core.net.KeyCertOptions",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.key-store-options",
+      "type": "io.vertx.core.net.JksOptions",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.local-address",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.log-activity",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.metrics-name",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.non-proxy-hosts",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.open-ssl-engine-options",
+      "type": "io.vertx.core.net.OpenSSLEngineOptions",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.password",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.pem-key-cert-options",
+      "type": "io.vertx.core.net.PemKeyCertOptions",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.pem-trust-options",
+      "type": "io.vertx.core.net.PemTrustOptions",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.pfx-key-cert-options",
+      "type": "io.vertx.core.net.PfxOptions",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.pfx-trust-options",
+      "type": "io.vertx.core.net.PfxOptions",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.port",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.prepared-statement-cache-max-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.prepared-statement-cache-sql-filter",
+      "type": "java.util.function.Predicate<java.lang.String>",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.properties",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.proxy-options",
+      "type": "io.vertx.core.net.ProxyOptions",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.read-idle-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.receive-buffer-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.reconnect-attempts",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.reconnect-interval",
+      "type": "java.lang.Long",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.reuse-address",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.reuse-port",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.send-buffer-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.server-rsa-public-key-path",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.server-rsa-public-key-value",
+      "type": "io.vertx.core.buffer.Buffer",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.so-linger",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.ssl",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.ssl-engine-options",
+      "type": "io.vertx.core.net.SSLEngineOptions",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.ssl-handshake-timeout",
+      "type": "java.lang.Long",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.ssl-handshake-timeout-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.ssl-mode",
+      "type": "io.vertx.mysqlclient.SslMode",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.tcp-cork",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.tcp-fast-open",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.tcp-keep-alive",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.tcp-no-delay",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.tcp-quick-ack",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.tracing-policy",
+      "type": "io.vertx.core.tracing.TracingPolicy",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.traffic-class",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.trust-all",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.trust-options",
+      "type": "io.vertx.core.net.TrustOptions",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.trust-store-options",
+      "type": "io.vertx.core.net.JksOptions",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.use-affected-rows",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.use-alpn",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.user",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.connection-options.write-idle-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.mysqlclient.MySQLConnectOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.pool-options.connection-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.sqlclient.PoolOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.pool-options.connection-timeout-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.sqlclient.PoolOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.pool-options.event-loop-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.sqlclient.PoolOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.pool-options.idle-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.sqlclient.PoolOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.pool-options.idle-timeout-unit",
+      "type": "java.util.concurrent.TimeUnit",
+      "sourceType": "io.vertx.sqlclient.PoolOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.pool-options.max-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.sqlclient.PoolOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.pool-options.max-wait-queue-size",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.sqlclient.PoolOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.pool-options.name",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.sqlclient.PoolOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.pool-options.pool-cleaner-period",
+      "type": "java.lang.Integer",
+      "sourceType": "io.vertx.sqlclient.PoolOptions"
+    },
+    {
+      "name": "vertx-boot.mysql.pool-options.shared",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.vertx.sqlclient.PoolOptions"
+    },
+    {
       "name": "vertx-boot.redis.options.endpoints",
       "type": "java.util.List<java.lang.String>",
       "sourceType": "io.vertx.redis.client.RedisOptions"
@@ -1077,6 +1459,27 @@
       "name": "vertx-boot.redis.options.use-replicas",
       "type": "io.vertx.redis.client.RedisReplicas",
       "sourceType": "io.vertx.redis.client.RedisOptions"
+    },
+    {
+      "name": "vertx-boot.http.server.deployment-options.extra-classpath",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "io.vertx.core.DeploymentOptions",
+      "deprecated": true,
+      "deprecation": {}
+    },
+    {
+      "name": "vertx-boot.http.server.deployment-options.isolated-classes",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "io.vertx.core.DeploymentOptions",
+      "deprecated": true,
+      "deprecation": {}
+    },
+    {
+      "name": "vertx-boot.http.server.deployment-options.isolation-group",
+      "type": "java.lang.String",
+      "sourceType": "io.vertx.core.DeploymentOptions",
+      "deprecated": true,
+      "deprecation": {}
     },
     {
       "name": "vertx-boot.redis.options.endpoint",
