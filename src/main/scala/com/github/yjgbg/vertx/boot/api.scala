@@ -4,7 +4,7 @@ object api extends api
 trait api:
   type Logger = com.typesafe.scalalogging.Logger
   type CoreConfig = core.CoreConfig
-  type VerticleBean = core.VerticleBean
+  type VerticleBean[State] = core.VerticleBean[State]
   type HttpClientConfig = http.client.HttpClientConfig
   type HttpServerConfig = http.server.HttpServerConfig
   type Controller[A, B] = http.server.Controller[A, B]

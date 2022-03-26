@@ -30,7 +30,7 @@ dependencies {
     api("io.micrometer:micrometer-registry-prometheus:$micrometerVersion")
     api("io.micrometer:micrometer-registry-jmx:$micrometerVersion")
     api("org.scala-lang:scala3-library_3:3.1.1")
-    implementation("com.typesafe.scala-logging:scala-logging_3:3.9.4")
+    api("com.typesafe.scala-logging:scala-logging_3:3.9.4")
     api("com.github.rssh:dotty-cps-async_3:0.9.8") // async和 await支持
     api("io.circe:circe-parser_3:0.15.0-M1")// json反序列化
     api("io.circe:circe-generic_3:0.15.0-M1") // json序列化

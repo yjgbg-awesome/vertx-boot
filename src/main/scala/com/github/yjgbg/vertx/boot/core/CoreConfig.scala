@@ -27,7 +27,7 @@ trait CoreConfig:
     Vertx.vertx(vertxOptions)
   }
 
-  @Bean def deployAllVerticleBean(vertx: Vertx, verticleBean: java.util.List[VerticleBean]): InitializingBean =
+  @Bean def deployAllVerticleBean(vertx: Vertx, verticleBean: java.util.List[VerticleBean[_]]): InitializingBean =
     () => verticleBean.forEach(vb => {
       log.debug(s"deploy verticleBean $verticleBean")
       vertx.deployVerticle(() => vb.verticle, vb.deploymentOptions)
