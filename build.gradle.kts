@@ -3,7 +3,7 @@ plugins {
     scala
     `java-library`
     `maven-publish`
-    id("org.springframework.boot") version "2.6.4"
+    id("org.springframework.boot") version "2.6.6"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
 }
 
@@ -15,7 +15,7 @@ repositories {
     maven("https://maven.aliyun.com/repository/public")
     mavenCentral()
 }
-val springVersion = "2.6.4"
+val springVersion = "2.6.6"
 val vertxVersion = "4.2.6"
 val micrometerVersion = "1.8.4"
 dependencies {
