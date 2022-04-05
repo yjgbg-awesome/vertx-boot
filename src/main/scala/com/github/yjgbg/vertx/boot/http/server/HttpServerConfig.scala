@@ -1,7 +1,7 @@
 package com.github.yjgbg.vertx.boot
 package http.server
 
-import com.github.yjgbg.vertx.boot.valid.kernel
+import com.github.yjgbg.vertx.boot.valid.{kernel, syntax}
 import com.typesafe.scalalogging.Logger
 import io.vertx.core.http.{HttpMethod, HttpServer, HttpServerOptions}
 import io.vertx.core.{DeploymentOptions, Vertx, VertxOptions}
@@ -65,6 +65,7 @@ trait HttpServerConfig:
       predicate = _.isInstanceOf[kernel.Result],
       callback = (ctx: RoutingContext, result: kernel.Result) => {
         val encoder = io.circe.Encoder.encodeMap[String, Set[String]]
+        import valid.syntax.CoreSyntax.toMessageMap
         ctx.response().setStatusCode(422).end(encoder(result.toMessageMap).noSpaces)
       }
     )
