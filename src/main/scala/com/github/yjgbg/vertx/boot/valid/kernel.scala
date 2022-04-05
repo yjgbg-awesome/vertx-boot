@@ -8,16 +8,16 @@ import java.util
 
 object kernel:
   object Result:
-    case object None
+    case object None extends RuntimeException(null,null,false,false)
 
-    case class Simple(rejectObject: Any, msg: String)
+    case class Simple(rejectObject: Any, msg: String) extends RuntimeException(null,null,false,false)
 
-    case class Plus(error0: Result, error1: Result)
+    case class Plus(error0: Result, error1: Result) extends RuntimeException(null,null,false,false)
 
     object Plus:
       def apply(r0: Result, r1: Result): Result = if (r0 == None) r1 else if (r1 == None) r0 else new Plus(r0, r1)
 
-    case class Transformation(field: String, error: Result)
+    case class Transformation(field: String, error: Result) extends RuntimeException(null,null,false,false)
 
     object Transformation:
       def apply(field: String, r: Result): None.type | Transformation =

@@ -5,18 +5,17 @@ import io.vertx.ext.web.RoutingContext
 import org.springframework.context.annotation.Bean
 import syntax.AllSyntax.*
 
-case class ResultHasError(result: kernel.Result) extends RuntimeException(null,null,false,false)
 // int.maxValue为最低优先级
-val log = com.typesafe.scalalogging.Logger[ValidConfig]
-trait ValidConfig(priority: Int):
+val log = com.typesafe.scalalogging.Logger[ValidationConfig]
+trait ValidationConfig(priority: Int):
   self: http.server.HttpServerConfig & core.CoreConfig =>
-  @Bean def resultHasErrorHandler: http.server.ExceptionHandler[ResultHasError] =
-    http.server.ExceptionHandler[ResultHasError](
+  @Bean def validateResultHandler: http.server.ExceptionHandler[kernel.Result] =
+    http.server.ExceptionHandler[kernel.Result](
       order = priority,
-      predicate = _.isInstanceOf[ResultHasError],
-      callback = (ctx: RoutingContext, thr: ResultHasError) => {
+      predicate = _.isInstanceOf[kernel.Result],
+      callback = (ctx: RoutingContext, result: kernel.Result) => {
         val encoder = io.circe.Encoder.encodeMap[String, Set[String]]
-        ctx.response().setStatusCode(422).end(encoder(thr.result.toMessageMap).noSpaces)
+        ctx.response().setStatusCode(422).end(encoder(result.toMessageMap).noSpaces)
       }
     )
   @Bean def throwableHandler: http.server.ExceptionHandler[Throwable] = http.server.ExceptionHandler[Throwable](

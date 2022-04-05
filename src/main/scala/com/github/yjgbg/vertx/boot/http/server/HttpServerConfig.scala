@@ -1,10 +1,11 @@
 package com.github.yjgbg.vertx.boot
 package http.server
 
+import com.github.yjgbg.vertx.boot.valid.kernel
 import com.typesafe.scalalogging.Logger
 import io.vertx.core.http.{HttpMethod, HttpServer, HttpServerOptions}
 import io.vertx.core.{DeploymentOptions, Vertx, VertxOptions}
-import io.vertx.ext.web.Router
+import io.vertx.ext.web.{Router, RoutingContext}
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Bean
 
@@ -22,6 +23,7 @@ trait HttpServerConfig:
   @ConfigurationProperties("vertx-boot.http.server.options")
   @Bean def httpServerOptions = new HttpServerOptions()
 
+  // 用controller，middleware，以及exceptionHandler部署一个http服务器
   @Bean def httpServerVerticleBean(vertx: Vertx,
                                    httpOptions: HttpServerOptions,
                                    deploymentOptions: DeploymentOptions,
@@ -56,3 +58,21 @@ trait HttpServerConfig:
     httpServer => httpServer.close()
       .onSuccess(_ => log.info("http server closed"))
       .map(_ => ()))
+  // 排序在0的异常处理器：校验结果处理器
+  @Bean def validateResultHandler: http.server.ExceptionHandler[kernel.Result] =
+    http.server.ExceptionHandler[kernel.Result](
+      order = 0,
+      predicate = _.isInstanceOf[kernel.Result],
+      callback = (ctx: RoutingContext, result: kernel.Result) => {
+        val encoder = io.circe.Encoder.encodeMap[String, Set[String]]
+        ctx.response().setStatusCode(422).end(encoder(result.toMessageMap).noSpaces)
+      }
+    )
+  // 排在最后的异常处理器: 通用异常处理器
+  @Bean def throwableHandler: http.server.ExceptionHandler[Throwable] = http.server.ExceptionHandler[Throwable](
+    order = Int.MaxValue,
+    callback = (ctx:RoutingContext,thr: Throwable) => {
+      ctx.response().setStatusCode(500).end(if(thr.getMessage!= null) thr.getMessage else thr.toString)
+      log.error("an unexpected error happened",thr)
+    }
+  )

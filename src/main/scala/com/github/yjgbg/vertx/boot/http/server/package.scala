@@ -5,7 +5,7 @@ import io.vertx.core.Future
 import io.vertx.ext.web.RoutingContext
 
 import scala.reflect.ClassTag
-import cps.{async}
+import cps.async
 import vertxCps.CpsSyntax.given
 package object server:
   type Method = "GET" | "POST" | "PUT" | "DELETE" | "OPTION" | "PATCH"
@@ -42,7 +42,7 @@ package object server:
       case None => (status,header,None)
       case _ => (status, header, Some(body.asInstanceOf[A]))
     }
-  case class ExceptionHandler[A <: Throwable :ClassTag]
+  case class ExceptionHandler[A <: Throwable]
   (
     order:Int = org.springframework.core.Ordered.LOWEST_PRECEDENCE,
     predicate: Throwable => Boolean = _ => true,

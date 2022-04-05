@@ -19,10 +19,9 @@ trait api:
   type MySQLConfig = sql.config.MySQLConfig
   type TypedSQLClient = sql.TypedSQLClient
   type RedisConfig = redis.RedisConfig
-  type ValidConfig = valid.ValidConfig
+  type ValidationConfig = valid.ValidationConfig
   type Validator[A] = valid.kernel.Validator[A]
   type Result = valid.kernel.Result
-  type ResultHasError = valid.ResultHasError
   val Logger: com.typesafe.scalalogging.Logger.type = com.typesafe.scalalogging.Logger
   val VerticleBean: core.VerticleBean.type = core.VerticleBean
   val Controller: http.server.Controller.type = http.server.Controller
@@ -31,4 +30,3 @@ trait api:
   val HttpResponse: http.server.HttpResponse.type = http.server.HttpResponse
   val Validator: valid.kernel.Validator.type = valid.kernel.Validator
   val Result: valid.kernel.Result.type = valid.kernel.Result
-  val ResultHasError: valid.ResultHasError.type = valid.ResultHasError
