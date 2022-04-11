@@ -19,7 +19,6 @@ trait api:
   type MySQLConfig = sql.config.MySQLConfig
   type TypedSQLClient = sql.TypedSQLClient
   type RedisConfig = redis.RedisConfig
-  type ValidationConfig = valid.ValidationConfig
   type Validator[A] = valid.kernel.Validator[A]
   type Result = valid.kernel.Result
   val Logger: com.typesafe.scalalogging.Logger.type = com.typesafe.scalalogging.Logger

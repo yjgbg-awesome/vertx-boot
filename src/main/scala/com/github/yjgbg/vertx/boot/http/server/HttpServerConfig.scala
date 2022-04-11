@@ -61,7 +61,7 @@ trait HttpServerConfig:
   // 排序在0的异常处理器：校验结果处理器
   @Bean def validateResultHandler: http.server.ExceptionHandler[kernel.Result] =
     http.server.ExceptionHandler[kernel.Result](
-      order = 0,
+      order = Int.MaxValue - 1,
       predicate = _.isInstanceOf[kernel.Result],
       callback = (ctx: RoutingContext, result: kernel.Result) => {
         val encoder = io.circe.Encoder.encodeMap[String, Set[String]]
