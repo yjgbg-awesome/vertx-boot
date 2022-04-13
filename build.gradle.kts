@@ -48,16 +48,31 @@ java {
 }
 
 publishing {
-    publications.create<MavenPublication>("this") {
+    publications.create<MavenPublication>("snapshot") {
         from(components["java"])
         pom {
             version = "${project.ext["publicationVersion"].toString()}-SNAPSHOT"
         }
     }
+    publications.create<MavenPublication>("hypers") {
+        from(components["java"])
+        pom {
+            groupId = "com.hypers.weicl"
+            version = project.ext["publicationVersion"].toString()
+        }
+    }
     repositories.maven("https://oss.sonatype.org/content/repositories/snapshots") {
+        name = "snapshot"
         credentials {
             username = project.ext["mavenUsername"].toString()
             password = project.ext["mavenPassword"].toString()
+        }
+    }
+    repositories.maven("https://nexus3.hypers.cc/repository/maven-releases/") {
+        name = "hypers"
+        credentials {
+            username = project.ext["hypersMavenUsername"].toString()
+            password = project.ext["hypersMavenPassword"].toString()
         }
     }
 }
