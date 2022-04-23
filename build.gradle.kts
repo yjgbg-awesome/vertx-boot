@@ -9,6 +9,7 @@ plugins {
 
 group = "com.github.yjgbg"
 java.sourceCompatibility = JavaVersion.VERSION_11
+version = "1.1"
 
 repositories {
     mavenLocal()
@@ -16,7 +17,7 @@ repositories {
     mavenCentral()
 }
 val springVersion = "2.6.6"
-val vertxVersion = "4.2.6"
+val vertxVersion = "4.2.7"
 val micrometerVersion = "1.8.4"
 dependencies {
     api("org.springframework.boot:spring-boot-starter:${springVersion}")
@@ -51,14 +52,14 @@ publishing {
     publications.create<MavenPublication>("snapshot") {
         from(components["java"])
         pom {
-            version = "${project.ext["publicationVersion"].toString()}-SNAPSHOT"
+            version = "${project.version}-SNAPSHOT"
         }
     }
     publications.create<MavenPublication>("hypers") {
         from(components["java"])
         pom {
             groupId = "com.hypers.weicl"
-            version = project.ext["publicationVersion"].toString()
+            version = project.version.toString()
         }
     }
     repositories.maven("https://oss.sonatype.org/content/repositories/snapshots") {

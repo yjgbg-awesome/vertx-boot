@@ -1,7 +1,6 @@
-package com.github.yjgbg.vertx.boot.sql.config
+package com.github.yjgbg.vertx.boot.sql
 
 import com.github.yjgbg.vertx.boot.core
-import com.github.yjgbg.vertx.boot.sql.TypedSQLClient
 import io.vertx.core.Vertx
 import io.vertx.mysqlclient.{MySQLConnectOptions, MySQLPool}
 import io.vertx.sqlclient.PoolOptions
@@ -18,5 +17,3 @@ trait MySQLConfig:
 
   @Bean def mySQLPool(vertx: Vertx, mySQLConnectOptions: MySQLConnectOptions, poolOptions: PoolOptions): MySQLPool =
     MySQLPool.pool(vertx, mySQLConnectOptions, poolOptions)
-
-  @Bean def typedSQLPool(sqlClient: io.vertx.sqlclient.SqlClient): TypedSQLClient = TypedSQLClient(sqlClient)

@@ -1,10 +1,9 @@
 package com.github.yjgbg.vertx.boot
 package http.server
 
-import io.vertx.core.{Future, Handler}
+import io.vertx.core.Handler
 import io.vertx.ext.web.RoutingContext
 
-import java.util.function.Predicate
 import scala.concurrent.duration.Duration
 
 case class Middleware(requestLine: Seq[RequestLine] = Seq(),
@@ -20,7 +19,3 @@ object Middleware:
       ctx.response().endHandler(ignored => ctx.vertx().cancelTimer(id))
       ctx.next()
     })
-  def blackHole(requestLine: Seq[RequestLine]): Middleware = apply(requestLine, ctx => {})
-  def static[A:io.circe.Encoder](requestLine: Seq[RequestLine],httpResponse: HttpResponse[A]): Middleware =
-    apply(requestLine,httpResponse.use)
-  

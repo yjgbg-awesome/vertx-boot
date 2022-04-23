@@ -36,19 +36,18 @@ trait HttpServerConfig:
       val router = Router.router(vertx)
       middlewareList.forEach(mid => {
         log.info(s"add middleware: ${mid.toString}")
-        mid.requestLine.foreach {
-          case (method, path) => router
+        mid.requestLine.foreach((method, path) => router
             .route(HttpMethod.valueOf(method), path)
             .handler(mid.callback(_))
-        }
+        )
       })
       controllerList.forEach { ctl => {
         log.info(s"add controller: ${ctl.toString}")
         val handler = ctl.toHandler(exceptionHandlerList.asInstanceOf)
-        ctl.requestLine.foreach {
-          case (method, path) => router.route(HttpMethod.valueOf(method), path)
-            .handler(ctx => handler.handle(ctx))
-        }
+        ctl.requestLine.foreach((method, path) => router
+          .route(HttpMethod.valueOf(method), path)
+          .handler(ctx => handler.handle(ctx))
+        )
       }}
       vertx.createHttpServer(httpOptions).requestHandler(router).listen()
         .onSuccess(_ =>
