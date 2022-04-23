@@ -8,11 +8,10 @@ case class HttpRequest[A: io.circe.Decoder](routingContext: RoutingContext):
   def params: MultiMap = routingContext.request().params()
   def headers: MultiMap = routingContext.request().headers()
   def cookies: java.util.Set[Cookie] = routingContext.request().cookies()
-  import io.circe.parser.decode
+  import io.circe.jawn.decodeByteBuffer
   def body: Future[A] = routingContext.request().body()
-    .map(buffer => buffer.toString).asInstanceOf[Future[String]]
-    .map(string => decode[A](string) match {
+    .map(buf => decodeByteBuffer(buf.getByteBuf.nioBuffer) match
       case Left(throwable) => throw throwable
       case Right(value) =>value
-    }).asInstanceOf
+    )
 
