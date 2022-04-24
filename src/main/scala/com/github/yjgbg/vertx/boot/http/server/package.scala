@@ -4,7 +4,6 @@ package http
 import io.vertx.core.Future
 import io.vertx.ext.web.RoutingContext
 
-import scala.reflect.ClassTag
 import cps.async
 import vertxCps.CpsSyntax.given
 package object server:
@@ -28,11 +27,11 @@ package object server:
           headers.asInstanceOf[ResponseHeaders].foreach(ctx.response().putHeader(_,_))
           ctx.response().end()
         case Some(body) => ctx.response().setStatusCode(200)
-          .putHeader("ContentType","application/json")
+          .putHeader("Content-Type","application/json")
           .end(encoder(body.asInstanceOf[A]).noSpaces)
         case None => ctx.response().setStatusCode(200).end()
         case body => ctx.response().setStatusCode(200)
-          .putHeader("ContentType","application/json")
+          .putHeader("Content-Type","application/json")
           .end(encoder(body.asInstanceOf[A]).noSpaces)
     }
   object HttpResponse:

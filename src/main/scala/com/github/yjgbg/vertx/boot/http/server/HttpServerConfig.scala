@@ -3,6 +3,7 @@ package http.server
 
 import com.github.yjgbg.vertx.boot.valid.{kernel, syntax}
 import com.typesafe.scalalogging.Logger
+import io.circe.DecodingFailure
 import io.vertx.core.http.{HttpMethod, HttpServer, HttpServerOptions}
 import io.vertx.core.{DeploymentOptions, Vertx, VertxOptions}
 import io.vertx.ext.web.{Router, RoutingContext}
@@ -57,22 +58,28 @@ trait HttpServerConfig:
     httpServer => httpServer.close()
       .onSuccess(_ => log.info("http server closed"))
       .map(_ => ()))
+  @Bean def onDecodeFailure: ExceptionHandler[DecodingFailure] = http.server.ExceptionHandler[DecodingFailure](
+    order = Int.MaxValue -2,
+    predicate = _.isInstanceOf[DecodingFailure],
+    callback = (ctx,decodingFailure) => ctx.response().setStatusCode(400).end(decodingFailure.toString)
+  )
   // 排序在0的异常处理器：校验结果处理器
-  @Bean def validateResultHandler: http.server.ExceptionHandler[kernel.Result] =
+  @Bean def onValidateResult: http.server.ExceptionHandler[kernel.Result] =
     http.server.ExceptionHandler[kernel.Result](
       order = Int.MaxValue - 1,
       predicate = _.isInstanceOf[kernel.Result],
-      callback = (ctx: RoutingContext, result: kernel.Result) => {
+      callback = (ctx, result) => {
         val encoder = io.circe.Encoder.encodeMap[String, Set[String]]
         import valid.syntax.CoreSyntax.toMessageMap
         ctx.response().setStatusCode(422).end(encoder(result.toMessageMap).noSpaces)
       }
     )
   // 排在最后的异常处理器: 通用异常处理器
-  @Bean def throwableHandler: http.server.ExceptionHandler[Throwable] = http.server.ExceptionHandler[Throwable](
+  @Bean def onThrowable: http.server.ExceptionHandler[Throwable] = http.server.ExceptionHandler[Throwable](
     order = Int.MaxValue,
     callback = (ctx:RoutingContext,thr: Throwable) => {
       ctx.response().setStatusCode(500).end(if(thr.getMessage!= null) thr.getMessage else thr.toString)
       log.error("an unexpected error happened",thr)
+      thr.printStackTrace()
     }
   )
