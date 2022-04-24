@@ -9,7 +9,7 @@ plugins {
 
 group = "com.github.yjgbg"
 java.sourceCompatibility = JavaVersion.VERSION_11
-version = "1.2"
+version = "1.3"
 
 repositories {
     mavenLocal()
